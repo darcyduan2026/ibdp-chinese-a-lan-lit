@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IB Chinese A | Assessment Structure</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  background: #ffffff;
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid #D3D1C7;
+  border-radius: 999px;
+  color: #2C2C2A;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  background: #F7F5EE;
+}
+
+.site-nav a.active {
+  background: #2C2C2A;
+  color: white;
+  border-color: #2C2C2A;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #2C2C2A;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #5F5E5A;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+/* Comparison Table */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.comparison-table th {
+  background: #2C2C2A;
+  color: white;
+  padding: 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.comparison-table th:first-child {
+  width: 20%;
+}
+
+.comparison-table th:nth-child(2),
+.comparison-table th:nth-child(3) {
+  width: 40%;
+}
+
+.level-header {
+  text-align: center !important;
+  font-size: 16px;
+}
+
+.comparison-table td {
+  padding: 20px;
+  border-bottom: 1px solid #E8E7E3;
+  vertical-align: top;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.component-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: #2C2C2A;
+  margin-bottom: 4px;
+}
+
+.assessment-card {
+  background: #F9F9F8;
+  border-radius: 8px;
+  padding: 16px;
+  border-left: 4px solid;
+}
+
+.paper1-card { border-left-color: #1D9E75; }
+.paper2-card { border-left-color: #378ADD; }
+.io-card { border-left-color: #D85A30; }
+.hle-card { border-left-color: #BA7517; }
+.na-card { 
+  border-left-color: #B4B2A9; 
+  opacity: 0.5;
+}
+
+.title-en {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2C2C2A;
+  margin-bottom: 2px;
+}
+
+.title-zh {
+  font-size: 13px;
+  color: #5F5E5A;
+  margin-bottom: 12px;
+}
+
+.task-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #444441;
+  margin-bottom: 12px;
+  padding-left: 12px;
+  border-left: 2px solid #D3D1C7;
+}
+
+.meta-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.meta-label {
+  color: #888780;
+}
+
+.meta-value {
+  font-weight: 700;
+  color: #2C2C2A;
+}
+
+.weight-badge {
+  display: inline-block;
+  background: #2C2C2A;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.criteria-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #D3D1C7;
+}
+
+.criteria-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #888780;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.criteria-list {
+  display: grid;
+  gap: 6px;
+}
+
+.criterion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  padding: 6px 10px;
+  background: white;
+  border-radius: 4px;
+}
+
+.criterion-name {
+  color: #444441;
+}
+
+.criterion-name strong {
+  color: #2C2C2A;
+  font-weight: 700;
+}
+
+.criterion-marks {
+  font-weight: 700;
+  color: #2C2C2A;
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+.hl-badge {
+  display: inline-block;
+  background: #EEEDFE;
+  color: #534AB7;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.note-box {
+  background: #FFF9E6;
+  border-left: 4px solid #EF9F27;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 32px 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.note-title {
+  font-weight: 700;
+  color: #BA7517;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Summary Section */
+.summary-section {
+  margin-top: 40px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.summary-card {
+  background: #F9F9F8;
+  border-radius: 12px;
+  padding: 24px;
+  border-top: 4px solid;
+}
+
+.summary-card.sl {
+  border-top-color: #378ADD;
+}
+
+.summary-card.hl {
+  border-top-color: #7F77DD;
+}
+
+.summary-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.summary-card.sl .summary-title {
+  color: #185FA5;
+}
+
+.summary-card.hl .summary-title {
+  color: #3C3489;
+}
+
+.summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.summary-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #E8E7E3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.summary-list li:last-child {
+  border-bottom: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 2px solid #2C2C2A;
+}
+
+.summary-component {
+  color: #444441;
+}
+
+.summary-weight {
+  font-weight: 700;
+  color: #2C2C2A;
+}
+
+.works-required {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.works-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #888780;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.works-list {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #444441;
+}
+
+.works-list strong {
+  color: #2C2C2A;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #D3D1C7;
+  font-size: 12px;
+  color: #888780;
+}
+
+@media print {
+  body { padding: 20px; }
+  .container { max-width: 100%; }
+  .comparison-table { box-shadow: none; }
+}
+
+@media (max-width: 1024px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .comparison-table {
+    font-size: 12px;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 12px;
+  }
+  
+  .meta-info {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="index.html">Home</a>
+    <a href="ibdp-chinese-a-assessment.html" class="active">Chinese A</a>
+    <a href="ibdp-chinese-a-teacher-division.html">Co-teaching</a>
+    <a href="ibdp-chinese-b.html">Chinese B</a>
+    <a href="ibdp-chinese-ab-initio.html">ab initio</a>
+    <a href="extended-essay.html">Extended Essay</a>
+  </nav>
+  <h1>IB Diploma Programme: Chinese A Language and Literature</h1>
+  <div class="subtitle">考试结构对比 | Assessment Structure Comparison</div>
+
+  <!-- Comparison Table -->
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>评估组成<br><span style="font-weight:400;font-size:12px">Assessment Component</span></th>
+        <th class="level-header">Standard Level (SL)</th>
+        <th class="level-header">Higher Level (HL)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Paper 1 -->
+      <tr>
+        <td class="component-name">Paper 1<br><span style="font-weight:400;font-size:12px;color:#5F5E5A">外部考试</span></td>
+        
+        <td>
+          <div class="assessment-card paper1-card">
+            <div class="title-en">Paper 1: Guided Analysis</div>
+            <div class="title-zh">试卷一：引导性分析</div>
+            
+            <div class="task-desc">
+              <strong>任务 Task:</strong> 收到2篇未见过的非文学文本，分析其中1篇。<br>
+              <em>Analyze ONE of two unseen non-literary texts.</em>
+            </div>
+            
+            <div class="meta-info">
+              <div class="meta-item">
+                <span class="meta-label">时长:</span>
+                <span class="meta-value">1小时15分 (1h 15min)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">总分:</span>
+                <span class="meta-value">20分 (20 marks)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">权重:</span>
+                <span class="weight-badge">35%</span>
+              </div>
+            </div>
+            
+            <div class="criteria-section">
+              <div class="criteria-title">评分标准 Assessment Criteria</div>
+              <div class="criteria-list">
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion A:</strong> Understanding & Interpretation</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion B:</strong> Analysis & Evaluation</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion C:</strong> Focus & Organization</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion D:</strong> Language</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="assessment-card paper1-card">
+            <div class="title-en">Paper 1: Guided Analysis</div>
+            <div class="title-zh">试卷一：引导性分析</div>
+            
+            <div class="task-desc">
+              <strong>任务 Task:</strong> 收到2篇未见过的非文学文本，必须分析<strong>两篇</strong>。<br>
+              <em>Analyze BOTH of two unseen non-literary texts.</em>
+            </div>
+            
+            <div class="meta-info">
+              <div class="meta-item">
+                <span class="meta-label">时长:</span>
+                <span class="meta-value">2小时15分 (2h 15min)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">总分:</span>
+                <span class="meta-value">40分 (40 marks)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">权重:</span>
+                <span class="weight-badge">35%</span>
+              </div>
+            </div>
+            
+            <div class="criteria-section">
+              <div class="criteria-title">评分标准 Assessment Criteria（每篇20分，共40分）</div>
+              <div class="criteria-list">
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion A:</strong> Understanding & Interpretation</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion B:</strong> Analysis & Evaluation</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion C:</strong> Focus & Organization</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion D:</strong> Language</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- Paper 2 -->
+      <tr>
+        <td class="component-name">Paper 2<br><span style="font-weight:400;font-size:12px;color:#5F5E5A">外部考试</span></td>
+        
+        <td>
+          <div class="assessment-card paper2-card">
+            <div class="title-en">Paper 2: Comparative Essay</div>
+            <div class="title-zh">试卷二：比较性论文</div>
+            
+            <div class="task-desc">
+              <strong>任务 Task:</strong> 从4道题中选1题，比较2部课堂学习的文学作品。<br>
+              <em>Choose 1 of 4 questions and compare TWO literary works studied.</em>
+            </div>
+            
+            <div class="meta-info">
+              <div class="meta-item">
+                <span class="meta-label">时长:</span>
+                <span class="meta-value">1小时45分 (1h 45min)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">总分:</span>
+                <span class="meta-value">30分 (30 marks)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">权重:</span>
+                <span class="weight-badge">35%</span>
+              </div>
+            </div>
+            
+            <div class="criteria-section">
+              <div class="criteria-title">评分标准 Assessment Criteria</div>
+              <div class="criteria-list">
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion A:</strong> Knowledge & Understanding</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion B:</strong> Analysis & Evaluation</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion C:</strong> Focus & Organization</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion D:</strong> Language</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="assessment-card paper2-card">
+            <div class="title-en">Paper 2: Comparative Essay <span class="hl-badge">教学期望</span></div>
+            <div class="title-zh">试卷二：比较性论文（任务相同，要求更高）</div>
+            
+            <div class="task-desc">
+              <strong>任务 Task:</strong> 与SL相同：从4道题中选1题，比较2部课堂学习的文学作品；HL在课程广度与分析成熟度上要求更高。<br>
+              <em>Same task as SL: choose 1 of 4 questions and compare TWO works, with greater breadth of study and more mature critical analysis expected at HL.</em>
+            </div>
+            
+            <div class="meta-info">
+              <div class="meta-item">
+                <span class="meta-label">时长:</span>
+                <span class="meta-value">1小时45分 (1h 45min)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">总分:</span>
+                <span class="meta-value">30分 (30 marks)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">权重:</span>
+                <span class="weight-badge">25%</span>
+              </div>
+            </div>
+            
+            <div class="criteria-section">
+              <div class="criteria-title">评分标准 Assessment Criteria</div>
+              <div class="criteria-list">
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion A:</strong> Knowledge & Understanding</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion B:</strong> Analysis & Evaluation</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion C:</strong> Focus & Organization</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion D:</strong> Language</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- Individual Oral -->
+      <tr>
+        <td class="component-name">Individual Oral<br><span style="font-weight:400;font-size:12px;color:#5F5E5A">内部评估</span></td>
+        
+        <td>
+          <div class="assessment-card io-card">
+            <div class="title-en">Individual Oral (IO)</div>
+            <div class="title-zh">个人口头评估</div>
+            
+            <div class="task-desc">
+              <strong>任务 Task:</strong> 选择1个全球性议题，分析并比较1部文学作品和1组非文学作品。<br>
+              <em>Present on a global issue, analyzing ONE literary work and ONE non-literary body of work.</em>
+            </div>
+            
+            <div class="meta-info">
+              <div class="meta-item">
+                <span class="meta-label">时长:</span>
+                <span class="meta-value">15分钟 (10+5)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">总分:</span>
+                <span class="meta-value">40分 (40 marks)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">权重:</span>
+                <span class="weight-badge">30%</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">准备:</span>
+                <span class="meta-value">15分钟</span>
+              </div>
+            </div>
+            
+            <div class="criteria-section">
+              <div class="criteria-title">评分标准 Assessment Criteria</div>
+              <div class="criteria-list">
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion A:</strong> Knowledge & Understanding</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion B:</strong> Analysis & Evaluation</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion C:</strong> Focus & Organization</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion D:</strong> Language</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="assessment-card io-card">
+            <div class="title-en">Individual Oral (IO) <span class="hl-badge">教学期望</span></div>
+            <div class="title-zh">个人口头评估（任务相同，要求更高）</div>
+            
+            <div class="task-desc">
+              <strong>任务 Task:</strong> 与SL相同：围绕1个全球性议题，分析并比较1部文学作品和1组非文学作品；HL在连接深度与批判性表达上要求更高。<br>
+              <em>Same task as SL: present on one global issue through ONE literary work and ONE non-literary body of work, with deeper analytical connections expected at HL.</em>
+            </div>
+            
+            <div class="meta-info">
+              <div class="meta-item">
+                <span class="meta-label">时长:</span>
+                <span class="meta-value">15分钟 (10+5)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">总分:</span>
+                <span class="meta-value">40分 (40 marks)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">权重:</span>
+                <span class="weight-badge">20%</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">准备:</span>
+                <span class="meta-value">15分钟</span>
+              </div>
+            </div>
+            
+            <div class="criteria-section">
+              <div class="criteria-title">评分标准 Assessment Criteria</div>
+              <div class="criteria-list">
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion A:</strong> Knowledge & Understanding</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion B:</strong> Analysis & Evaluation</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion C:</strong> Focus & Organization</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion D:</strong> Language</span>
+                  <span class="criterion-marks">10分</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- HL Essay -->
+      <tr>
+        <td class="component-name">HL Essay<br><span style="font-weight:400;font-size:12px;color:#5F5E5A">外部评估</span></td>
+        
+        <td>
+          <div class="assessment-card na-card">
+            <div class="title-en">No HL Essay Required</div>
+            <div class="title-zh">无此项评估</div>
+            
+            <div class="task-desc" style="text-align:center;padding:20px;">
+              <em>SL students do not complete this component.<br>SL学生不需要完成此项。</em>
+            </div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="assessment-card hle-card">
+            <div class="title-en">HL Essay <span class="hl-badge">仅HL</span></div>
+            <div class="title-zh">高水平论文（HL独有评估）</div>
+            
+            <div class="task-desc">
+              <strong>任务 Task:</strong> 选择课堂学习的1部文学作品或1组非文学作品，围绕明确的研究方向撰写1,200-1,500字独立论文；所选文本不得与IO重复。<br>
+              <em>Write a 1,200-1,500 word essay on ONE literary work or ONE non-literary body of work studied in class. The line of inquiry is student-chosen, and the selected text/body must not duplicate the IO.</em>
+            </div>
+            
+            <div class="meta-info">
+              <div class="meta-item">
+                <span class="meta-label">字数:</span>
+                <span class="meta-value">1,200-1,500字</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">总分:</span>
+                <span class="meta-value">20分 (20 marks)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">权重:</span>
+                <span class="weight-badge">20%</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">提交:</span>
+                <span class="meta-value">由IB按考试届期规定 | IB-set deadline per session</span>
+              </div>
+            </div>
+            
+            <div class="criteria-section">
+              <div class="criteria-title">评分标准 Assessment Criteria</div>
+              <div class="criteria-list">
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion A:</strong> Knowledge & Understanding</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion B:</strong> Analysis & Evaluation</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion C:</strong> Focus & Organization</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+                <div class="criterion-item">
+                  <span class="criterion-name"><strong>Criterion D:</strong> Language</span>
+                  <span class="criterion-marks">5分</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Key Differences Note -->
+  <div class="note-box">
+    <div class="note-title">
+      <span>⚠️</span>
+      <span>关键差异 Key Differences</span>
+    </div>
+    <ul style="margin:0;padding-left:20px;line-height:1.8">
+      <li><strong>Paper 1结构不同：</strong>SL分析2篇文本中的1篇，HL必须分析2篇 | SL analyzes one of two texts; HL analyzes both texts</li>
+      <li><strong>Paper 2权重不同：</strong>SL占35%，HL占25%，因为HL另有HLE | SL: 35%, HL: 25% because HL also completes the HLE</li>
+      <li><strong>Individual Oral权重不同：</strong>SL占30%，HL占20% | SL: 30%, HL: 20%</li>
+      <li><strong>HL Essay是HL独有：</strong>占20%，且为外部评估 | 20% external component unique to HL only</li>
+      <li><strong>作品数量要求：</strong>SL需要4部文学作品，HL需要6部文学作品 | SL: 4 literary works, HL: 6 literary works</li>
+      <li><strong>分析深度：</strong>任务说明大体一致，但HL在课程广度、连接深度与批判性分析上要求更高 | Tasks are broadly the same, but HL expects broader study and deeper critical analysis</li>
+    </ul>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="summary-section">
+    <h2 style="text-align:center;font-size:24px;color:#2C2C2A;margin-bottom:32px">评估权重总结 | Assessment Weight Summary</h2>
+    
+    <div class="summary-grid">
+      <!-- SL Summary -->
+      <div class="summary-card sl">
+        <div class="summary-title">Standard Level (SL)</div>
+        <ul class="summary-list">
+          <li>
+            <span class="summary-component">Paper 1</span>
+            <span class="summary-weight">35%</span>
+          </li>
+          <li>
+            <span class="summary-component">Paper 2</span>
+            <span class="summary-weight">35%</span>
+          </li>
+          <li>
+            <span class="summary-component">Individual Oral</span>
+            <span class="summary-weight">30%</span>
+          </li>
+          <li>
+            <span class="summary-component">总计 Total</span>
+            <span class="summary-weight">100%</span>
+          </li>
+        </ul>
+        
+        <div class="works-required">
+          <div class="works-title">作品要求 Works Required</div>
+          <div class="works-list">
+            <strong>文学作品 Literary:</strong> 4部<br>
+            <strong>非文学作品 Non-literary:</strong> 若干组（IB未规定固定数量）<br>
+            <strong>总计 Total:</strong> 无固定总数（4部文学作品 + 若干非文学作品组）
+          </div>
+        </div>
+      </div>
+
+      <!-- HL Summary -->
+      <div class="summary-card hl">
+        <div class="summary-title">Higher Level (HL)</div>
+        <ul class="summary-list">
+          <li>
+            <span class="summary-component">Paper 1</span>
+            <span class="summary-weight">35%</span>
+          </li>
+          <li>
+            <span class="summary-component">Paper 2</span>
+            <span class="summary-weight">25%</span>
+          </li>
+          <li>
+            <span class="summary-component">Individual Oral</span>
+            <span class="summary-weight">20%</span>
+          </li>
+          <li>
+            <span class="summary-component">HL Essay</span>
+            <span class="summary-weight">20%</span>
+          </li>
+          <li>
+            <span class="summary-component">总计 Total</span>
+            <span class="summary-weight">100%</span>
+          </li>
+        </ul>
+        
+        <div class="works-required">
+          <div class="works-title">作品要求 Works Required</div>
+          <div class="works-list">
+            <strong>文学作品 Literary:</strong> 6部<br>
+            <strong>非文学作品 Non-literary:</strong> 若干组（IB未规定固定数量）<br>
+            <strong>总计 Total:</strong> 无固定总数（6部文学作品 + 若干非文学作品组）
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    IB Diploma Programme • Chinese A: Language and Literature • Assessment Guide 2026<br>
+    国际文凭大学预科项目 • 中文A：语言与文学 • 评估指南 2026
+  </footer>
+</div>
+
+</body>
+</html>
